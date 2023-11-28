@@ -1,0 +1,4 @@
+2023-11-28T09:53:52.970Z | [ error ] | The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2023-11-28T09:53:52.971Z | [ error ] | Database is not connected
+{"level":"error","message":"Error Routes not found 404","timestamp":"2023-11-28T11:36:32.196Z"}
+{"level":"error","message":"Error Routes not found 404","timestamp":"2023-11-28T11:36:32.475Z"}
