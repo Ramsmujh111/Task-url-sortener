@@ -17,9 +17,10 @@ exports.UrlShortener = async (req, res) => {
         // check base url is valid url or not
         if(!validUrl.isUri(baseUrl) || !validUrl.isUri(longUrl)){
             Logger.info('url is not valid');
-            return res.status(401).json({
+            res.status(401)
+            return res.json({
                 status:false,
-                message:`Url is not valid`
+                message:`Url is not valid Please Try again`
             })
         }
 
@@ -33,7 +34,8 @@ exports.UrlShortener = async (req, res) => {
                 new Date().setHours(new Date().getHours()+ 23)
             )
             await urlSchema.save();
-            return res.status(200).json({
+            res.status(200)
+           return res.json({
                 status:true,
                 urlSchema,
             })
@@ -51,7 +53,8 @@ exports.UrlShortener = async (req, res) => {
         })
         await urlSchema.save();
         Logger.info(`url has been save in Database`);
-        res.status(201).json({
+        res.status(201)
+        res.json({
             status:true,
             message:`Create new Instance of Url`,
             urlSchema,
@@ -59,7 +62,8 @@ exports.UrlShortener = async (req, res) => {
         
     } catch (error) {
         Logger.error(error.message);
-        res.status(500).json({
+        res.status(500)
+        res.json({
             status:false,
             message:error.message
         })
